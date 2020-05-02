@@ -1,4 +1,4 @@
-export interface Story {
+interface IItemBase {
     id: number;
     title: string;
     points?: number | null;
@@ -9,4 +9,16 @@ export interface Story {
     type: string;
     url?: string;
     domain?: string;
+}
+
+export interface IFeedItem extends IItemBase {
+}
+
+export interface IItem extends IItemBase{
+    content: string;
+    deleted?: boolean;
+    dead?: boolean;
+    type: string;
+    comments: IItem[]; // Comments are items too
+    level: number;
 }

@@ -1,0 +1,7 @@
+.domain {
+    font-weight: normal;
+    color: rgba(0,0,0,.6);
+    margin-left: 6px;
+    cursor: text !important;
+    pointer-events: none !important;
+}

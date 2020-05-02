@@ -10,5 +10,5 @@ const requests = {
 
 export const hackerNewsApiCalls = {
     getTopStories: (): Promise<any[]> => requests.get("news/1.json"),
-    getStory: (id: string): Promise<any> => requests.get(`item/${id}.json`)
+    getStory: (id: number): Promise<any> => requests.get(`item/${id}.json`)
 }

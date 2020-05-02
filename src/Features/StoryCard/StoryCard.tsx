@@ -1,28 +1,28 @@
 import React from 'react';
-import { Item } from 'semantic-ui-react';
+import { Item as SemanticItem } from 'semantic-ui-react';
+import "./StoryCard.css";
+import { IFeedItem } from '../../Typings/Story';
+import { Item } from '../Item/Item';
 
-export interface IStoryCardProps {
-    Title: string;
-    TimeAgo: string;
-    Url?: string;
-    Points?: number | null;
-    PostedBy?: string | null;
+export interface IStoryCardProps extends IFeedItem {
+    onStorySelect: (id: number) => void;
 }
 
-export const StoryCard: React.FC<IStoryCardProps> = ({Title, TimeAgo, Url, Points, PostedBy}) => {
+export const StoryCard: React.FC<IStoryCardProps> = ({onStorySelect: onShowComments, id, title, time_ago: timeAgo, url, domain, points, user: postedBy}) => {
     return (
-        <Item>
-            <Item.Content>
-                <Item.Header as='a'>
-                    <a href={Url} target="_blank" rel="noopener noreferrer">{Title}</a>
-                </Item.Header>
-                <Item.Meta>
-                    { Points && <span className='price'>{`${Points} points`}</span> }
-                    { PostedBy && <span className='stay'>{`by ${PostedBy}`}</span> }
-                    <span className='stay'>{TimeAgo}</span>
-                    <span className='stay'><a href="#">Comments</a></span>
-                </Item.Meta>
-            </Item.Content>
-        </Item>
+        <>
+            <SemanticItem>
+                <SemanticItem.Content>
+                    <Item url={url} title={title} domain={domain} />
+
+                    <SemanticItem.Meta>
+                        { points && <span className='price'>{`${points} points`}</span> }
+                        { postedBy && <span className='stay'>{`by ${postedBy}`}</span> }
+                        <span className='stay'>{timeAgo}</span>
+                        <span className='stay' onClick={() => onShowComments(id)}><a href="#">Comments</a></span>
+                    </SemanticItem.Meta>
+                </SemanticItem.Content>
+            </SemanticItem>
+        </>
     )
 }
