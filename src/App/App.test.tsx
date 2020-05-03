@@ -30,7 +30,7 @@ test("Given the stories are being loaded, when the component renders, then rende
   expect(loader).toBeInTheDocument();
 });
 
-test("When the components have finished loading, then render the stories", async () => {
+test("When the stories have been successfully loaded, then render the stories", async () => {
   // Arrange
   const storyMock = {
     id: 1,
