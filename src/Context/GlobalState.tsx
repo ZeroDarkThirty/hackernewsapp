@@ -8,24 +8,30 @@ const GlobalState = ({children}) => {
     const [ selectedStory, setSelectedStory ] = useState<IItem>();
     const [ isLoading, setIsLoading ] = useState(false);
 
-    const getTopTenStories = () => {
+    const getTopTenStories = async () => {
         setIsLoading(true);
 
-        hackerNewsApiCalls.getTopStories().then((news) => {
-            const firstTenStories = news.slice(0, 10);
-            setStories(firstTenStories);
-            console.log(news);
+        try {
+            const stories = await hackerNewsApiCalls.getTopStories();
+            setStories(stories)
             setIsLoading(false);
-        });
+        } catch (e) {
+            alert(e);
+            setIsLoading(false);
+        }
     }
 
-    const getSelectedStory = (id: number) => {
+    const getSelectedStory = async (id: number) => {
         setIsLoading(true);
-        hackerNewsApiCalls.getStory(id).then((story) => {
-          setSelectedStory(story);
 
-          setIsLoading(false);
-        });
+        try {
+            const stories = await hackerNewsApiCalls.getStory(id);
+            setSelectedStory(stories)
+            setIsLoading(false);
+        } catch (e) {
+            alert(e);
+            setIsLoading(false);
+        }
     }
 
     const clearSelectedStory = () => {

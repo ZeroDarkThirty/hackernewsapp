@@ -1,10 +1,10 @@
 import React, { useEffect, useContext } from 'react';
 import './App.css';
 import { Menu, Container, Grid, Item as SemanticItem } from "semantic-ui-react";
-import { StoryCard } from './Features/StoryCard/StoryCard';
-import { SelectedItem } from './Features/SelectedItem/SelectedItem';
-import HackerNewsContext from './Context/HackerNewsContext';
-import { Loader } from './Loader/Loader';
+import { StoryCard } from '../Features/StoryCard/StoryCard';
+import { SelectedItem } from '../Features/SelectedItem/SelectedItem';
+import HackerNewsContext from '../Context/HackerNewsContext';
+import { Loader } from '../Loader/Loader';
 
 export const App: React.FC = () => {
   const { stories, selectedStory, getTopTenStories, isLoading, clearSelectedStory } = useContext(HackerNewsContext);
