@@ -8,7 +8,7 @@ import { Loader } from '../Loader/Loader';
 
 export const App: React.FC = () => {
   const { stories, selectedStory, getTopTenStories, isLoading, clearSelectedStory } = useContext(HackerNewsContext);
- 
+
   useEffect(() => {
     if (stories === undefined) {
       getTopTenStories();

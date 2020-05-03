@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { IItem } from "../../Typings/Story";
 import { Item as SemanticItem, Comment } from "semantic-ui-react";
 import { ItemComment } from "../ItemComment/ItemComment";
@@ -12,6 +12,10 @@ export interface ISelectedItemProps {
 
 export const SelectedItem: React.FC<ISelectedItemProps> = ({selectedStory}) => {
     const { isLoading } = useContext(HackerNewsContext);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     if (isLoading) {
         return <Loader />

@@ -13,7 +13,8 @@ const GlobalState = ({children}) => {
 
         try {
             const stories = await hackerNewsApiCalls.getTopStories();
-            setStories(stories)
+            const topTenStories = stories.slice(0, 10);
+            setStories(topTenStories)
             setIsLoading(false);
         } catch (e) {
             alert(e);

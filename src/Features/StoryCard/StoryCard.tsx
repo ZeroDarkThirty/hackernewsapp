@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Item as SemanticItem } from 'semantic-ui-react';
 import "./StoryCard.css";
 import { IFeedItem } from '../../Typings/Story';
@@ -11,6 +11,10 @@ export interface IStoryCardProps extends IFeedItem {
 export const StoryCard: React.FC<IStoryCardProps> = (
     {id, title, time_ago: timeAgo, url, domain, points, user: postedBy, comments_count}) => {
     const { getSeletedStory } = useContext(HackerNewsContext);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <SemanticItem>
