@@ -1,7 +1,7 @@
 import React from 'react';
 import { IItem } from '../../Typings/Story';
 import DOMPurify from 'dompurify';
-import { Button, Comment, Form, Header } from 'semantic-ui-react'
+import { Comment } from 'semantic-ui-react'
 
 export interface IItemCommentsProps {
     comment: IItem;
@@ -15,7 +15,7 @@ export const ItemComment: React.FC<IItemCommentsProps> = ({comment}) => {
     const nestedComments = () => {
         return (comment.comments || []).map(comment => {
             return (
-                <Comment.Group>
+                <Comment.Group key={comment.id}>
                     <ItemComment key={comment.id} comment={comment}/>
                 </Comment.Group>
             )

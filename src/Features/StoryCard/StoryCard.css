@@ -5,3 +5,12 @@
     cursor: text !important;
     pointer-events: none !important;
 }
+
+.comments-btn {
+    color: black;
+	background: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+	cursor: pointer;
+}
