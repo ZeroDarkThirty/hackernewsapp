@@ -4,12 +4,8 @@ axios.defaults.baseURL = "https://api.hnpwa.com/v0/";
 
 const responseBody = (res: AxiosResponse) => res.data;
 
-const delay = (ms: number) => (response: AxiosResponse) => {
-    return new Promise<AxiosResponse>(resolve => setTimeout(() => resolve(response), ms))
-}
-
 const requests = {
-    get: (url: string) => axios.get(url).then(delay(1000)).then(responseBody),
+    get: (url: string) => axios.get(url).then(responseBody),
 }
 
 export const hackerNewsApiCalls = {
