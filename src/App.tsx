@@ -1,9 +1,7 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import './App.css';
 import { Menu, Container, Grid, Item as SemanticItem } from "semantic-ui-react";
-import { hackerNewsApiCalls } from './API/ApiCalls';
 import { StoryCard } from './Features/StoryCard/StoryCard';
-import { IFeedItem, IItem } from './Typings/Story';
 import { SelectedItem } from './Features/SelectedItem/SelectedItem';
 import HackerNewsContext from './Context/HackerNewsContext';
 import { Loader } from './Loader/Loader';
@@ -42,7 +40,7 @@ export const App: React.FC = () => {
             <SemanticItem.Group>
               {renderStories()}
             </SemanticItem.Group>
-          </Grid> : 
+          </Grid> :
           <SelectedItem selectedStory={selectedStory} />
         }
       </Container>

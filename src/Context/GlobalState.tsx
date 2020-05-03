@@ -28,7 +28,11 @@ const GlobalState = ({children}) => {
         });
     }
 
-    const clearSelectedStory = () => setSelectedStory(undefined);
+    const clearSelectedStory = () => {
+        if (setSelectedStory !== undefined) {
+            setSelectedStory(undefined)
+        }
+    };
 
     const buildState: IHackerNewsContext = {
         getTopTenStories: getTopTenStories,

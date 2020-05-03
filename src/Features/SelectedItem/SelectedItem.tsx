@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { IItem } from "../../Typings/Story";
-import { Menu, Container, Grid, Item as SemanticItem, Divider, Comment } from "semantic-ui-react";
+import { Item as SemanticItem, Comment } from "semantic-ui-react";
 import { ItemComment } from "../ItemComment/ItemComment";
 import { Item } from "../Item/Item";
 import HackerNewsContext from "../../Context/HackerNewsContext";
